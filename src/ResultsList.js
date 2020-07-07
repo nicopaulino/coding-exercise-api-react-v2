@@ -46,7 +46,8 @@ class ResultsList extends Component {
 
 
     render() {
-        var data = this.state.data || [];
+        var peopleData = this.state.peopleData || [];
+        var groupsData = this.state.groupsData || [];
 
         return (
             <Table celled padded>
