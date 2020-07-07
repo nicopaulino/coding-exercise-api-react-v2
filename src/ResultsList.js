@@ -22,6 +22,17 @@ class ResultsList extends Component {
           .then(response => response.json())
           .then(data => this.setState({ groupsData: data.data }));
     }
+    
+    deleteGroup(id) {
+      fetch(`http://localhost:8000/api/groups/${id}`, 
+      {
+        method: 'delete'
+      }).then(response =>
+        console.log(response),
+        this.getGroups())
+    }
+
+
     render() {
         var data = this.state.data || [];
 
