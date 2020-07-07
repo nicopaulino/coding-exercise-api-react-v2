@@ -63,7 +63,7 @@ class ResultsList extends Component {
               <Table.Body>
 
               {
-                  data.map((person, index) => {
+                  peopleData.map((person, index) => {
                       return (
                           <Table.Row key={index}>
                               <Table.Cell singleLine>{ person.first_name }</Table.Cell>
@@ -77,6 +77,35 @@ class ResultsList extends Component {
 
               </Table.Body>
             </Table>
+            
+            <Table celled padded>
+
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell singleLine>Group Name</Table.HeaderCell>
+                <Table.HeaderCell singleLine>Actions</Table.HeaderCell>
+
+              </Table.Row>
+            </Table.Header>
+
+            <Table.Body>
+
+            {
+                groupsData.map((group, index) => {
+                    return (
+                        <Table.Row key={index}>
+                            <Table.Cell singleLine>{ group.group_name }</Table.Cell>
+                            <Table.Cell singleLine>
+                              <button onClick={() => {this.deleteGroup(group.id)}}>Delete</button>
+                            </Table.Cell>
+
+                        </Table.Row>
+                    );
+                  })
+            }
+
+            </Table.Body>
+          </Table>
     );
 }
 
