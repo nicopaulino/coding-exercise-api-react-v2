@@ -5,6 +5,9 @@ class ResultsList extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+          peopleData: [],
+          groupsData: [] 
+        };
     }
 
     componentDidMount() {
