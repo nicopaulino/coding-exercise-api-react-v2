@@ -50,6 +50,7 @@ class ResultsList extends Component {
         var groupsData = this.state.groupsData || [];
 
         return (
+          <div>
             <Table celled padded>
               <Table.Header>
                 <Table.Row>
@@ -106,6 +107,7 @@ class ResultsList extends Component {
 
             </Table.Body>
           </Table>
+          </div>
     );
 }
 
