@@ -4,7 +4,7 @@ import { Table } from 'semantic-ui-react'
 class ResultsList extends Component {
     constructor(props) {
         super(props);
-        this.state = { data: [] };
+        this.state = { 
     }
 
     componentDidMount() {
