@@ -35,20 +35,33 @@ function  postData(route, data){
 ReactDOM.render(
   <App>
     <CSVReader onFileLoaded={(data, fileInfo) => {
-      data.shift();
 
-      data.forEach(person => {
-        let dataObj = {
-          first_name: person[0],
-          last_name: person[1],
-          email_address: person[2],
-          status: person[3]
-        };
+      if (data[0][0] === "first_name"){
+        data.shift();
 
-        console.dir(dataObj);
-        postData("people", dataObj)
+        data.forEach(person => {
+          let dataObj = {
+            first_name: person[0],
+            last_name: person[1],
+            email_address: person[2],
+            status: person[3]
+          };
+  
+          console.dir(data[0]);
+          postData("people", dataObj);
       });
+      } else if (data[0][0] === "group_name"){
+        data.shift();
 
+        data.forEach(person => {
+          let dataObj = {
+            group_name: person[0]
+          };
+  
+          console.dir(data);
+          postData("groups", dataObj);
+        })
+      }
       }} />
     <ResultsList peopleFunction={postData}/>
   </App>,
