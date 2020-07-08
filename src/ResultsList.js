@@ -58,6 +58,7 @@ class ResultsList extends Component {
                   <Table.HeaderCell>Last Name</Table.HeaderCell>
                   <Table.HeaderCell>Email</Table.HeaderCell>
                   <Table.HeaderCell>Status</Table.HeaderCell>
+                  <Table.HeaderCell>Actions</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
 
