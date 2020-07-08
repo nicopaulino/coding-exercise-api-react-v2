@@ -34,7 +34,17 @@ function  getPeople(data){
 
 ReactDOM.render(
   <App>
-    <CSVReader onFileLoaded={(data, fileInfo) => console.dir(data, fileInfo)} />
+    <CSVReader onFileLoaded={(data, fileInfo) => {
+      data.shift();
+      let dataObj = {
+        first_name: data[0][0],
+        last_name: data[0][1],
+        email_address: data[0][2],
+        status: data[0][3]
+      };
+      console.dir(dataObj);
+      getPeople(dataObj)
+      }} />
     <ResultsList />
   </App>,
   document.getElementById("root")
