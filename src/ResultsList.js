@@ -69,7 +69,15 @@ class ResultsList extends Component {
                   <Table.Cell singleLine><input type="text" id="email" placeholder="Email"/></Table.Cell>
                   <Table.Cell singleLine><input type="text" id="status" placeholder="Status"/></Table.Cell>
                   <Table.Cell singleLine>
-                    <input type="submit" onClick={() => console.log(`I've been submited!`)}></input>
+                    <input type="submit" onClick={() => {
+                      console.log(`I've been submited!`);
+                      this.props.peopleFunction({
+                          first_name: document.getElementById("firstName").value,
+                          last_name: document.getElementById("lastName").value,
+                          email_address: document.getElementById("email").value,
+                          status: document.getElementById("status").value
+                      });
+                  }}></input>
                   </Table.Cell>
                 </Table.Row>
 
