@@ -81,6 +81,10 @@ class ResultsList extends Component {
                               <Table.Cell singleLine>{ person.last_name }</Table.Cell>
                               <Table.Cell singleLine>{ person.email_address }</Table.Cell>
                               <Table.Cell singleLine>{ person.status }</Table.Cell>
+                              <Table.Cell singleLine>
+                              <button onClick={() => {console.log(`I've been edited!`)}}>Edit</button>
+                              <button onClick={() => {this.deleteData("people", person.id)}}>Delete</button>
+                            </Table.Cell>
                           </Table.Row>
                       );
                     })
