@@ -63,6 +63,15 @@ class ResultsList extends Component {
               </Table.Header>
 
               <Table.Body>
+                <Table.Row >
+                  <Table.Cell singleLine><input type="text"/></Table.Cell>
+                  <Table.Cell singleLine><input type="text"/></Table.Cell>
+                  <Table.Cell singleLine><input type="text"/></Table.Cell>
+                  <Table.Cell singleLine><input type="text"/></Table.Cell>
+                  <Table.Cell singleLine>
+                    <input type="submit" onClick={() => console.log(`I've been submited!`)}></input>
+                  </Table.Cell>
+                </Table.Row>
 
               {
                   peopleData.map((person, index) => {
