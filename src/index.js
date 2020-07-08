@@ -18,8 +18,8 @@ styleLink.rel = "stylesheet";
 styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
 document.head.appendChild(styleLink);
 
-function  getPeople(data){
-  fetch('http://localhost:8000/api/people/', {
+function  postData(route, data){
+  fetch(`http://localhost:8000/api/${route}/`, {
     method: 'post',
     headers : { 
       'Content-Type': 'application/json',
@@ -46,11 +46,11 @@ ReactDOM.render(
         };
 
         console.dir(dataObj);
-        getPeople(dataObj)
+        postData("people", dataObj)
       });
 
       }} />
-    <ResultsList />
+    <ResultsList peopleFunction={postData}/>
   </App>,
   document.getElementById("root")
 );
