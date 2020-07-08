@@ -64,10 +64,10 @@ class ResultsList extends Component {
 
               <Table.Body>
                 <Table.Row >
-                  <Table.Cell singleLine><input type="text"/></Table.Cell>
-                  <Table.Cell singleLine><input type="text"/></Table.Cell>
-                  <Table.Cell singleLine><input type="text"/></Table.Cell>
-                  <Table.Cell singleLine><input type="text"/></Table.Cell>
+                  <Table.Cell singleLine><input type="text" id="firstName" placeholder="First Name"/></Table.Cell>
+                  <Table.Cell singleLine><input type="text" id="lastName" placeholder="Last Name"/></Table.Cell>
+                  <Table.Cell singleLine><input type="text" id="email" placeholder="Email"/></Table.Cell>
+                  <Table.Cell singleLine><input type="text" id="status" placeholder="Status"/></Table.Cell>
                   <Table.Cell singleLine>
                     <input type="submit" onClick={() => console.log(`I've been submited!`)}></input>
                   </Table.Cell>
