@@ -18,6 +18,20 @@ styleLink.rel = "stylesheet";
 styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
 document.head.appendChild(styleLink);
 
+function  getPeople(data){
+  fetch('http://localhost:8000/api/people/', {
+    method: 'post',
+    headers : { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+     },
+    body: JSON.stringify(data)
+  }).then(response => {
+    // return response.json();
+    console.log(response);
+  });
+}
+
 ReactDOM.render(
   <App>
     <CSVReader onFileLoaded={(data, fileInfo) => console.dir(data, fileInfo)} />
