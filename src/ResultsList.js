@@ -112,7 +112,6 @@ class ResultsList extends Component {
                   <Table.Cell singleLine></Table.Cell>
                   <Table.Cell singleLine>
                     <input type="submit" onClick={() => {
-                      console.log(`I've been submited!`);
                       this.props.peopleFunction("groups", {
                           group_name: document.getElementById("groupName").value,
                       });
@@ -128,7 +127,7 @@ class ResultsList extends Component {
                             <Table.Cell singleLine>{ group.group_name }</Table.Cell>
                             <Table.Cell singleLine>{ peopleData.map((person, index) => {
                               if (group.id === person.group_id && person.status === "active"){
-                                let groupMember = `${person.first_name} ${person.last_name}, `;
+                                  let groupMember = `, ${person.first_name} ${person.last_name}`;
                                 return groupMember;
                               }
                             }) }</Table.Cell>
