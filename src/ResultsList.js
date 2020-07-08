@@ -11,28 +11,14 @@ class ResultsList extends Component {
     }
 
     componentDidMount() {
-        // fetch("http://localhost:8000/api/people")
-        //   .then(response => response.json())
-        //   .then(data => this.setState({ peopleData: data.data }));
-
-        // fetch("http://localhost:8000/api/groups")
-        //   .then(response => response.json())
-        //   .then(data => this.setState({ groupsData: data.data }));
-        this.getPeople();
-        this.getGroups();
+        this.getData("people");
+        this.getData("groups");
     }
 
-
-    getGroups(){
-        fetch("http://localhost:8000/api/people")
+    getData(route){
+      fetch(`http://localhost:8000/api/${route}`)
           .then(response => response.json())
-          .then(data => this.setState({ peopleData: data.data }));
-    }
-
-    getPeople(){
-      fetch("http://localhost:8000/api/groups")
-          .then(response => response.json())
-          .then(data => this.setState({ groupsData: data.data }));
+        .then(data => route === "people" ? this.setState({ peopleData: data.data }) : this.setState({ groupsData: data.data }));
     }
     
     deleteData(route, id) {
