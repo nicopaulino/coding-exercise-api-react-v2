@@ -40,10 +40,7 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'first_name'    => 'required|max:255',
-            'last_name'     => 'required|max:255',
-            'email_address' => 'required|email',
-            'status'        => Rule::in(['active', 'archived'])
+            'group_name'    => 'required|max:255',
         ]);
 
         $group = Group::create($request->all());
