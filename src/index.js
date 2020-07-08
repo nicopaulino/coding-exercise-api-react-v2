@@ -27,7 +27,6 @@ function  postData(route, data){
      },
     body: JSON.stringify(data)
   }).then(response => {
-    // return response.json();
     console.log(response);
   });
 }
@@ -44,10 +43,10 @@ ReactDOM.render(
             first_name: person[0],
             last_name: person[1],
             email_address: person[2],
-            status: person[3]
+            status: person[3],
+            group_id: person[4]
           };
   
-          console.dir(data[0]);
           postData("people", dataObj);
       });
       } else if (data[0][0] === "group_name"){
@@ -57,9 +56,7 @@ ReactDOM.render(
           let dataObj = {
             group_name: person[0]
           };
-  
-          console.dir(data);
-          postData("groups", dataObj);
+            postData("groups", dataObj);
         })
       }
       }} />
