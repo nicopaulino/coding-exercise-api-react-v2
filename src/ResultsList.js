@@ -35,8 +35,8 @@ class ResultsList extends Component {
           .then(data => this.setState({ groupsData: data.data }));
     }
     
-    deleteGroup(id) {
-      fetch(`http://localhost:8000/api/groups/${id}`, 
+    deleteData(route, id) {
+      fetch(`http://localhost:8000/api/${route}/${id}`, 
       {
         method: 'delete'
       }).then(response =>
