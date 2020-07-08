@@ -36,14 +36,19 @@ ReactDOM.render(
   <App>
     <CSVReader onFileLoaded={(data, fileInfo) => {
       data.shift();
-      let dataObj = {
-        first_name: data[0][0],
-        last_name: data[0][1],
-        email_address: data[0][2],
-        status: data[0][3]
-      };
-      console.dir(dataObj);
-      getPeople(dataObj)
+
+      data.forEach(person => {
+        let dataObj = {
+          first_name: person[0],
+          last_name: person[1],
+          email_address: person[2],
+          status: person[3]
+        };
+
+        console.dir(dataObj);
+        getPeople(dataObj)
+      });
+
       }} />
     <ResultsList />
   </App>,
