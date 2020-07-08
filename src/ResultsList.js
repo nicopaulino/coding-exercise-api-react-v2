@@ -111,7 +111,9 @@ class ResultsList extends Component {
                         <Table.Row key={index}>
                             <Table.Cell singleLine>{ group.group_name }</Table.Cell>
                             <Table.Cell singleLine>
-                              <button onClick={() => {this.deleteGroup(group.id)}}>Delete</button>
+                              <button onClick={() => {console.log(`I've been edited!`)}}>Edit</button>
+                              <button onClick={() => {this.deleteData("groups", group.id)}}>Delete</button>
+
                             </Table.Cell>
 
                         </Table.Row>
