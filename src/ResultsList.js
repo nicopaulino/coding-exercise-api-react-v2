@@ -21,6 +21,21 @@ class ResultsList extends Component {
         .then(data => route === "people" ? this.setState({ peopleData: data.data }) : this.setState({ groupsData: data.data }));
     }
     
+    changeData(route, data, id){
+      fetch(`http://localhost:8000/api/${route}/${id}`,
+      {
+        method: "put",
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         },
+        body: JSON.stringify(data)
+      }).then(response => {
+        // return response.json();
+        console.log(response);
+      });
+    }
+
     deleteData(route, id) {
       fetch(`http://localhost:8000/api/${route}/${id}`, 
       {
