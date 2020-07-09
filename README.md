@@ -1,3 +1,25 @@
+# How to Start Application
+  1. Download XAMPP (https://www.apachefriends.org/download.html)
+  2. Create Database
+  3. Add Tables called groups and people into the table
+  4. SQL code you can use 
+      CREATE TABLE groups (
+	      id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+        group_name varchar(255) NOT NULL,
+        created_at datetime,
+        updated_at datetime
+      );
+      CREATE TABLE people (
+	      id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+        first_name varchar(50) NOT NULL,
+        last_name varchar(50) NOT NULL,
+        email_address varchar(255) NOT NULL,
+        status varchar(8) NOT NULL,
+        group_id int,
+        created_at datetime,
+        updated_at datetime
+      );
+  5. Follow Excercise Set Up below 
 # Coding Exercise
 
 Hello, Nicholas Paulino!
