@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react'
+import CSVReader from 'react-csv-reader'
+
 
 class ResultsList extends Component {
     constructor(props) {
@@ -25,9 +27,40 @@ class ResultsList extends Component {
       fetch(`http://localhost:8000/api/${route}/${id}`, 
       {
         method: 'delete'
-      }).then(response =>
-        console.log(response),
-        this.getData(route))
+    postData(route, data){
+      fetch(`http://localhost:8000/api/${route}/`, {
+        method: 'post',
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         },
+        body: JSON.stringify(data)
+      }).then(() => route === "people" ? this.setState({ peopleData: this.getData("people") }) : this.setState({ groupsData: this.getData("groups") }));
+    }
+
+    dataParser(route, data){
+      data.shift();
+      if (route === "people"){
+        data.forEach(person => {
+          let dataObj = {
+            first_name: person[0],
+            last_name: person[1],
+            email_address: person[2],
+            status: person[3],
+            group_id: person[4]
+          };
+    
+          this.postData("people", dataObj);
+      });
+      } else if (route === "groups"){
+        data.forEach(person => {
+          let dataObj = {
+            group_name: person[0]
+          };
+            this.postData("groups", dataObj);
+        })
+      }
+    }
     }
 
     render() {
