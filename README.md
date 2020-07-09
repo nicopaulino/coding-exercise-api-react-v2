@@ -1,3 +1,10 @@
+# Things I Found Interesting
+  It was a very fun challenge trying to make all of my requests work for the groups route that I added. What I liked about this coding challenge was how much it required me to think about the prompt without every direction being handed to me. I was getting several 500 errors when I would first try to make a POST request. After lots of diving into the code I discovered the API was expecting certain columns that I was wasn't giving it. 
+  
+  The backend code was the most interesting to go through, there was so much too it but it all made so much sense. It helped me to see the relationship between the API, Database, and front end and how they all beautifully come together.
+
+  I am very proud of my work. I hope that it speaks for itself, however if you have any questions please don't hesitate to reach out to me at nicopaulino8@gmail.com.
+  
 # How to Start Application
   1. Download XAMPP (https://www.apachefriends.org/download.html)
   2. Create Database
