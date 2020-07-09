@@ -24,4 +24,9 @@ describe('<ResultsList />', () => {
     test('should match the snapshot', () => {
         expect(wrapper).toMatchSnapshot();
     });
+
+    test('should be a stateful class component', () => {
+        expect(React.Component.isPrototypeOf(ResultsList)).to.be.true;
+    });
+
 })
