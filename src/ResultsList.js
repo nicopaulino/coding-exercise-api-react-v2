@@ -64,6 +64,15 @@ class ResultsList extends Component {
         })
       }
     }
+
+    clearFields() {
+
+      document.getElementById("firstName").value = "";
+      document.getElementById("lastName").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("status").value = "";
+      document.getElementById("groupID").value = "";
+      document.getElementById("groupName").value = "";
     }
 
     render() {
@@ -72,6 +81,9 @@ class ResultsList extends Component {
 
         return (
           <div>
+            <CSVReader onFileLoaded={(data, fileInfo) => {
+              data[0][0] === "first_name" ? this.dataParser("people", data) : this.dataParser("groups", data);
+              }} />
             <Table celled padded>
               <Table.Header>
                 <Table.Row>
@@ -103,7 +115,8 @@ class ResultsList extends Component {
                         status: document.getElementById("status").value,
                         group_id: document.getElementById("groupID").value
                       };
-                      this.props.peopleFunction('people', newPerson);
+                      this.postData('people', newPerson);
+                      this.clearFields();
                   }}></input>
                   </Table.Cell>
                 </Table.Row>
@@ -148,9 +161,10 @@ class ResultsList extends Component {
                   <Table.Cell singleLine></Table.Cell>
                   <Table.Cell singleLine>
                     <input type="submit" onClick={() => {
-                      this.props.peopleFunction("groups", {
-                          group_name: document.getElementById("groupName").value,
+                      this.postData("groups", {
+                          group_name: document.getElementById("groupName").value
                       });
+                      this.clearFields();
                   }}></input>
                   </Table.Cell>
                 </Table.Row>
@@ -169,7 +183,6 @@ class ResultsList extends Component {
                             }) }</Table.Cell>
                             <Table.Cell singleLine>
                               <button onClick={() => {this.deleteData("groups", group.id)}}>Delete</button>
-
                             </Table.Cell>
 
                         </Table.Row>
