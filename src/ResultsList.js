@@ -27,6 +27,9 @@ class ResultsList extends Component {
       fetch(`http://localhost:8000/api/${route}/${id}`, 
       {
         method: 'delete'
+      }).then(() => route === "people" ? this.setState({ peopleData: this.getData("people") }) : this.setState({ groupsData: this.getData("groups") }))
+    }
+
     postData(route, data){
       fetch(`http://localhost:8000/api/${route}/`, {
         method: 'post',
